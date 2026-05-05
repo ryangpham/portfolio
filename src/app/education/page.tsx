@@ -21,6 +21,17 @@ export default function EducationPage() {
             <p className="mt-1 text-xs text-muted">
               {edu.start} – {edu.end}
             </p>
+            {"gpa" in edu && (
+              <p className="mt-1 text-xs text-muted">gpa: {edu.gpa}</p>
+            )}
+            {"courses" in edu && edu.courses.length > 0 && (
+              <div className="mt-3">
+                <p className="text-xs font-medium mb-1">relevant coursework</p>
+                <p className="text-xs text-muted leading-relaxed">
+                  {edu.courses.join(", ").toLowerCase()}
+                </p>
+              </div>
+            )}
           </article>
         ))}
       </div>

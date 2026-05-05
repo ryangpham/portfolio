@@ -21,9 +21,11 @@ export default function ExperiencePage() {
             <p className="mt-1 text-xs text-muted">
               {job.start.toLowerCase()} – {job.end.toLowerCase()}
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-muted">
-              {job.description}
-            </p>
+            {job.description && (
+              <p className="mt-3 text-sm leading-relaxed text-muted">
+                {job.description}
+              </p>
+            )}
           </article>
         ))}
       </div>
