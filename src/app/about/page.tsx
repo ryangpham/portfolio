@@ -19,8 +19,13 @@ export default function AboutPage() {
             {DATA.location.toLowerCase()}
           </p>
         </div>
-        <p className="text-sm leading-relaxed text-muted">{DATA.bio}</p>
-        <p className="text-sm leading-relaxed text-muted">{DATA.summary}</p>
+        <ul className="space-y-2 text-sm text-muted list-disc list-inside">
+          <li>incoming SWE at KPMG</li>
+          <li>B.S. in Computer Science at Georgia State University</li>
+          <li>prev SDE intern at new eic</li>
+          <li>incoming grailed shopper</li>
+          <li>karaoke addict</li>
+        </ul>
       </div>
     </PageLayout>
   );
