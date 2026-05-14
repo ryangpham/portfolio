@@ -1,6 +1,23 @@
+import { DevpostIcon, GitHubIcon, GlobeIcon } from "@/components/social-icons";
 import { PageLayout } from "@/components/page-layout";
 import { DATA } from "@/data/portfolio";
 import Image from "next/image";
+
+function ProjectLinkLabel({ type }: { type: string }) {
+  if (type === "github") {
+    return <GitHubIcon />;
+  }
+
+  if (type === "website") {
+    return <GlobeIcon />;
+  }
+
+  if (type === "devpost") {
+    return <DevpostIcon />;
+  }
+
+  return type;
+}
 
 export default function ProjectsPage() {
   return (
@@ -34,9 +51,16 @@ export default function ProjectsPage() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs tracking-wide underline"
+                  aria-label={link.type}
+                  className={
+                    link.type === "github" ||
+                    link.type === "website" ||
+                    link.type === "devpost"
+                      ? "inline-flex text-muted transition-colors hover:text-foreground"
+                      : "text-xs tracking-wide underline"
+                  }
                 >
-                  {link.type}
+                  <ProjectLinkLabel type={link.type} />
                 </a>
               ))}
             </div>

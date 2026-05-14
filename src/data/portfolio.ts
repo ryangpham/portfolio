@@ -132,7 +132,12 @@ export const DATA = {
         "pytest",
         "github actions",
       ],
-      links: [],
+      links: [
+          {
+          type: "github",
+          href: "https://github.com/theEricHoang/faceit",
+        },
+      ],
       image: "/faceit.png",
     },
     {
@@ -151,7 +156,12 @@ export const DATA = {
         "jwt",
         "github actions",
       ],
-      links: [],
+      links: [
+          {
+          type: "github",
+          href: "https://github.com/ryangpham/melomanic",
+        },
+      ],
       image: "/melomanic.png",
     },
     {
@@ -168,7 +178,12 @@ export const DATA = {
         "docker",
         "google places api",
       ],
-      links: [],
+      links: [
+          {
+          type: "github",
+          href: "https://github.com/ryangpham/duluth-eats",
+        },
+      ],
       image: "/dulutheats.png",
     },
     {
