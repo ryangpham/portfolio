@@ -5,15 +5,14 @@ import { SocialIcons } from "@/components/social-icons";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center px-6">
-      <div className="flex flex-col items-center">
-        <Logo />
-        <Timestamp />
-      </div>
-      <div className="flex flex-col items-start">
+    <div className="home-page">
+      <header className="site-header"><Logo /><Timestamp /></header>
+      <main id="main-content" className="home-menu">
+        <h1 className="sr-only">Ryan Pham — Software Engineer</h1>
         <NavLinks />
         <SocialIcons />
-      </div>
-    </main>
+      </main>
+      <footer className="home-footer">software engineer · atlanta, ga</footer>
+    </div>
   );
 }

@@ -31,7 +31,7 @@ export function Timestamp() {
   }, []);
 
   return (
-    <p className="mt-3 font-mono text-xs tracking-widest text-foreground">
+    <p className="timestamp">
       {time}
     </p>
   );

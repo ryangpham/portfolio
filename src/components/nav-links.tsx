@@ -1,43 +1,18 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { DATA } from "@/data/portfolio";
 
-const links = [
-  { label: "about", href: "/about" },
-  { label: "projects", href: "/projects" },
-  { label: "experience", href: "/experience" },
-  { label: "education", href: "/education" },
-  { label: "skills", href: "/skills" },
-  {
-    label: "resume",
-    href: DATA.resumeUrl,
-    external: true,
-  },
-];
+const links = ["about", "projects", "experience", "education", "skills", "blog", "contact"];
 
-export function NavLinks() {
+export function NavLinks({ variant = "home" }: { variant?: "home" | "footer" }) {
+  const pathname = usePathname();
   return (
-    <nav className="mt-16 flex flex-col gap-1">
-      {links.map((link) =>
-        link.external ? (
-          <a
-            key={link.label}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-1 py-1 font-mono text-[13px] tracking-wide text-foreground transition-colors hover:bg-accent hover:text-white"
-          >
-            {link.label}
-          </a>
-        ) : (
-          <Link
-            key={link.label}
-            href={link.href}
-            className="px-1 py-1 font-mono text-[13px] tracking-wide text-foreground transition-colors hover:bg-accent hover:text-white"
-          >
-            {link.label}
-          </Link>
-        )
-      )}
+    <nav aria-label="Main navigation" className={`navigation navigation--${variant}`}>
+      {variant === "footer" && <Link href="/">home</Link>}
+      {links.map((label) => <Link key={label} href={`/${label}`} aria-current={pathname === `/${label}` ? "page" : undefined}>{label}</Link>)}
+      <a href={DATA.resumeUrl} target="_blank" rel="noopener noreferrer">resume <span aria-hidden="true">↗</span></a>
     </nav>
   );
 }

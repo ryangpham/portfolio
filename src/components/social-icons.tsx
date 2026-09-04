@@ -83,7 +83,7 @@ const icons: Record<string, () => React.JSX.Element> = {
 
 export function SocialIcons() {
   return (
-    <div className="mt-10 flex gap-5 text-muted">
+    <div className="mt-10 flex gap-5 text-[#909090]">
       {Object.entries(DATA.social).map(([key, { url, label }]) => {
         const Icon = icons[key];
         return (
@@ -93,7 +93,7 @@ export function SocialIcons() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={label}
-            className="transition-colors hover:text-foreground"
+            className="transition-colors hover:text-white"
           >
             <Icon />
           </a>

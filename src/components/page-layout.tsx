@@ -1,4 +1,6 @@
-import Link from "next/link";
+import { Logo } from "@/components/logo";
+import { Timestamp } from "@/components/timestamp";
+import { Footer } from "@/components/footer";
 
 interface PageLayoutProps {
   title: string;
@@ -7,15 +9,13 @@ interface PageLayoutProps {
 
 export function PageLayout({ title, children }: PageLayoutProps) {
   return (
-    <main className="mx-auto max-w-2xl px-6 py-16">
-      <Link
-        href="/"
-        className="text-xs tracking-wide text-muted transition-colors hover:text-foreground"
-      >
-        ← back
-      </Link>
-      <h1 className="mt-8 text-lg font-medium tracking-wide">{title}</h1>
-      <div className="mt-8">{children}</div>
-    </main>
+    <div className="interior-page">
+      <header className="site-header"><Logo /><Timestamp /></header>
+      <main id="main-content" className={`page-content page-content--${title}`}>
+        <h1>{title}</h1>
+        {children}
+      </main>
+      <Footer />
+    </div>
   );
 }
